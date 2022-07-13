@@ -3,6 +3,8 @@
   padding: 0;
 }
 .App{
-  width: 100%;
-  min-height: 100%;
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url('./images/Background.svg');
+  color: wheat;
 }

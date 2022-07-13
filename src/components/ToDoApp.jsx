@@ -21,11 +21,11 @@ function ToDoApp() {
     const [list,setList] = useState(getList());
     const [doneList,setDoneList] = useState(getDoneList());
     const [currTask,setCurrTask] = useState("");
-    const handleSubmit = (e) =>{
+    const handleSubmit = () =>{
         if(currTask){
             setList(list => [currTask, ...list]);
+            setCurrTask("");
         }
-        e.target.value = "";
     }
     const handleCompleted = (id) =>{
         setDoneList(doneList => [list[id], ...doneList]);
@@ -49,12 +49,12 @@ function ToDoApp() {
     <div className='todoapp'>
         <button className='resetBtn' onClick={handleReset}>Reset Page</button>
         <div className='inputHalf'>
-            <input className="taskInput" type="text" placeholder='Enter a task(e.g, Shopping)' onChange = {(e)=>setCurrTask(e.target.value)} onKeyPress={(e) => {
+            <input className="taskInput" type="text" placeholder='Enter a task(e.g, Shopping)' value = {currTask} onChange = {(e)=>setCurrTask(e.target.value)} onKeyPress={(e) => {
                 if (e.key === "Enter") {
-                    handleSubmit(e);
+                    handleSubmit();
                 }
             }}></input>
-            <button className="taskSubmit" onClick={(e)=>handleSubmit(e)}>Add</button>
+            <button className="taskSubmit" onClick={handleSubmit}>Add</button>
         </div>
         <div className='taskHalf'>
             {
