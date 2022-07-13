@@ -1,4 +1,6 @@
 import React,{useState, useEffect} from 'react'
+import doneImg from '../images/Done.png'
+import notDoneImg from '../images/NotDone.png'
 import './todoapp.css'
 
 function ToDoApp() {
@@ -23,7 +25,13 @@ function ToDoApp() {
     const [currTask,setCurrTask] = useState("");
     const handleSubmit = () =>{
         if(currTask){
-            setList(list => [currTask, ...list]);
+            if(currTask.length < 35){
+                setList(list => [currTask, ...list]);
+            }
+            else{
+                let text = currTask.substr(0,33) + "...";
+                setList(list => [text, ...list]);
+            }
             setCurrTask("");
         }
     }
@@ -59,12 +67,12 @@ function ToDoApp() {
         <div className='taskHalf'>
             {
                 doneList && doneList.map((singleDoneList)=>{
-                    return <div key={singleDoneList} className='singleTask singleTaskCompleted'>{singleDoneList}</div>
+                    return <div key={singleDoneList} className='singleTask singleTaskCompleted'><p>{singleDoneList}</p> <img className='tasksImg' src={doneImg}></img></div>
                 })
             }
             {
                 list && list.map((singleList,id)=>{
-                    return <div key={singleList} className='singleTask' onClick={()=>handleCompleted(id)}>{singleList}</div>
+                    return <div key={singleList} className='singleTask' onClick={()=>handleCompleted(id)}><p>{singleList}</p> <img className='tasksImg' src={notDoneImg}></img></div>
                 })
             }
         </div>

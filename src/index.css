@@ -7,4 +7,6 @@
   min-height: 100vh;
   background-image: url('./images/Background.svg');
   color: wheat;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 1px;
 }

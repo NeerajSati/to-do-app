@@ -42,14 +42,24 @@
 .singleTask{
     background-color: rgb(131, 158, 191);
     color: black;
-    width: 250px;
+    width: 25rem;
     margin-right: 60px;
     text-align: center;
     padding: 5px;
     margin-top: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .singleTaskCompleted{
     color: rgb(255, 212, 137);
     background-color: rgb(59, 59, 59);
 }
+.singleTask p{
+    flex: 10;
+}
+.tasksImg{
+    width: 20px;
+    flex: 1;
+  }
