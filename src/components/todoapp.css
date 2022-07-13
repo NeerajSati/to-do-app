@@ -1,0 +1,40 @@
+.inputHalf, .taskHalf{
+    width: 100%;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.resetBtn{
+    padding: 5px;
+    position: absolute;
+    top: 55px;
+    right: 50px;
+}
+.taskInput{
+    width: 200px;
+    text-align: center;
+    padding: 5px 30px 5px 30px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.079);
+}
+.taskSubmit{
+    padding: 5px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.taskHalf{
+    padding-top: 10px;
+    flex-direction: column;
+}
+.singleTask{
+    background-color: rgb(210, 210, 210);
+    width: 250px;
+    margin-right: 60px;
+    text-align: center;
+    padding: 5px;
+    margin-top: 10px;
+}
+.singleTaskCompleted{
+    background-color: rgb(59, 59, 59);
+}
