@@ -2,8 +2,24 @@ import React,{useState, useEffect} from 'react'
 import './todoapp.css'
 
 function ToDoApp() {
-    const [list,setList] = useState([]);
-    const [doneList,setDoneList] = useState([]);
+    const getList = () => {
+        let myList = localStorage.getItem('list');
+        if(myList){
+            return JSON.parse(myList);
+        }
+        else
+            return [];
+    }
+    const getDoneList = () => {
+        let myDoneList = localStorage.getItem('doneList');
+        if(myDoneList){
+            return JSON.parse(myDoneList);
+        }
+        else
+            return [];
+    }
+    const [list,setList] = useState(getList());
+    const [doneList,setDoneList] = useState(getDoneList());
     const [currTask,setCurrTask] = useState("");
     const handleSubmit = (e) =>{
         if(currTask){
@@ -22,7 +38,13 @@ function ToDoApp() {
         setDoneList([]);
         setList([]);
     }
+    useEffect(() => {
+      localStorage.setItem('list',JSON.stringify(list))
+      localStorage.setItem('doneList',JSON.stringify(doneList))
+    }, [list,doneList])
     
+
+
   return (
     <div className='todoapp'>
         <button className='resetBtn' onClick={handleReset}>Reset Page</button>
