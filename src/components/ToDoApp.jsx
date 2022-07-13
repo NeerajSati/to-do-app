@@ -67,12 +67,12 @@ function ToDoApp() {
         <div className='taskHalf'>
             {
                 doneList && doneList.map((singleDoneList)=>{
-                    return <div key={singleDoneList} className='singleTask singleTaskCompleted'><p>{singleDoneList}</p> <img className='tasksImg' src={doneImg}></img></div>
+                    return <div key={singleDoneList} className='singleTask singleTaskCompleted'><p>{singleDoneList}</p> <img alt="taskImage" className='tasksImg' src={doneImg}></img></div>
                 })
             }
             {
                 list && list.map((singleList,id)=>{
-                    return <div key={singleList} className='singleTask' onClick={()=>handleCompleted(id)}><p>{singleList}</p> <img className='tasksImg' src={notDoneImg}></img></div>
+                    return <div key={singleList} className='singleTask' onClick={()=>handleCompleted(id)}><p>{singleList}</p> <img alt="taskImage" className='tasksImg' src={notDoneImg}></img></div>
                 })
             }
         </div>
